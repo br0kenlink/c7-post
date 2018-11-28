@@ -22,14 +22,14 @@ yum group install "Development Tools" -y &>/dev/null
 yum install yum-utils device-mapper-persistent-data lvm2 -y &>/dev/null
 yum install python-pip -y &>/dev/null
 pip install --upgrade pip &>/dev/null
-yum upgrade python* &>/dev/null
 
 echo "Done! "
 
 echo "Adding Docker Community Edition repository and installing docker-ce with docker-compose... "
 curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)"  -o /usr/local/bin/docker-compose &>/dev/null
-mv ./docker-compose /usr/bin/docker-compose &>/dev/null
+cp /usr/local/bin/docker-compose /usr/bin/docker-compose &>/dev/null
 chmod +x /usr/bin/docker-compose &>/dev/null
+yum upgrade python* &>/dev/null
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo &>/dev/null
 yum update &>/dev/null
 yum install docker-ce -yy &>/dev/null
