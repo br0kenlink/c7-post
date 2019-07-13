@@ -39,12 +39,12 @@ systemctl enable docker &>/dev/null
 echo "Done! "
 
 echo "Installing NTP syncing..."
-yum install ntp ntpdate
-systemctl start ntpd
-systemctl enable ntpd
-ntpdate -u -s 0.uk.pool.ntp.org 1.uk.pool.ntp.org 2.uk.pool.ntp.org 3.uk.pool.ntp.org
-systemctl restart ntpd
-hwclock -w
+yum install ntp ntpdate &>/dev/null
+systemctl start ntpd &>/dev/null
+systemctl enable ntpd &>/dev/null
+ntpdate -u -s 0.uk.pool.ntp.org 1.uk.pool.ntp.org 2.uk.pool.ntp.org 3.uk.pool.ntp.org &>/dev/null
+systemctl restart ntpd &>/dev/null
+hwclock -w &>/dev/null
 
 echo "Done!"
 
