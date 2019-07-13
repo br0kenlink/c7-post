@@ -38,6 +38,16 @@ systemctl enable docker &>/dev/null
 
 echo "Done! "
 
+echo "Installing NTP syncing..."
+yum install ntp ntpdate
+systemctl start ntpd
+systemctl enable ntpd
+ntpdate -u -s 0.uk.pool.ntp.org 1.uk.pool.ntp.org 2.uk.pool.ntp.org 3.uk.pool.ntp.org
+systemctl restart ntpd
+hwclock -w
+
+echo "Done!"
+
 mkdir .ssh &>/dev/null
 touch .ssh/authorized_keys &>/dev/null
 chmod -R 600 .ssh/
