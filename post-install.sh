@@ -3,7 +3,7 @@ echo "Welcome to Binia's Centos 7 post install script! "
 
 echo "Fist will update system... "
 
-yum update -yy &>/dev/null
+yum update -yyy &>/dev/null
 
 echo "System is updated"
 
@@ -26,7 +26,7 @@ pip install --upgrade pip &>/dev/null
 echo "Done! "
 
 echo "Adding Docker Community Edition repository and installing docker-ce with docker-compose... "
-curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)"  -o /usr/local/bin/docker-compose &>/dev/null
+curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)"  -o /usr/local/bin/docker-compose &>/dev/null
 cp /usr/local/bin/docker-compose /usr/bin/docker-compose &>/dev/null
 chmod +x /usr/bin/docker-compose &>/dev/null
 yum upgrade python* &>/dev/null
